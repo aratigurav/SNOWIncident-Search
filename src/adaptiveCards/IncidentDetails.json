@@ -1,0 +1,225 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "30px",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://w7.pngwing.com/pngs/398/766/png-transparent-business-incident-management-computer-trademark-brand-business-text-trademark-service.png",
+                            "style": "Person",
+                            "size": "Small"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${number}",
+                            "wrap": true,
+                            "size": "Medium",
+                            "color": "Accent"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "separator": true,
+            "spacing": "Medium",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "120px",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Assigned to",
+                            "isSubtle": true,
+                            "weight": "Bolder",
+                            "wrap": true,
+                            "size": "Small"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "${assignedTo}",
+                            "spacing": "Small",
+                            "wrap": true,
+                            "size": "Small"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                   "width": "120px",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Due on",
+                            "isSubtle": true,
+                            "weight": "Bolder",
+                            "wrap": true,
+                            "size": "Small"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "${due_on}",
+                            "spacing": "Small",
+                            "wrap": true,
+                            "size": "Small"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "Medium",
+            "columns": [
+                {
+                    "type": "Column",
+                   "width": "120px",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Status",
+                            "isSubtle": true,
+                            "weight": "Bolder",
+                            "wrap": true,
+                            "size": "Small"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "${state}",
+                            "spacing": "Small",
+                            "wrap": true,
+                            "size": "Small"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "120px",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Priority",
+                            "isSubtle": true,
+                            "weight": "Bolder",
+                            "wrap": true,
+                            "size": "Small"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "${Priority}",
+                            "spacing": "Small",
+                            "wrap": true,
+                            "size": "Small"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "Medium",
+            "separator": true,
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${short_description}",
+                            "isSubtle": true,
+                            "weight": "Bolder",
+                            "wrap": true,
+                            "size": "Small"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "Medium",
+            "separator": true,
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Comments:",
+                            "wrap": true,
+                            "weight": "Bolder",
+                            "size": "Small"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                  "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${Comments}",
+                            "isSubtle": true,
+                            "weight": "Lighter",
+                            "wrap": true,
+                            "size": "Small"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.ShowCard",
+                    "title": "Comments",
+                    "card": {
+                        "type": "AdaptiveCard",
+                        "body": [
+                            {
+                                "type": "Input.Date",
+                                "id": "dueDate"
+                            },
+                            {
+                                "type": "Input.Text",
+                                "id": "comment",
+                                "placeholder": "Add a comment",
+                                "isMultiline": true
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "Action.Execute",
+                                "title": "OK"
+                            }
+                        ],
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+                    }
+                },
+                {
+                    "type": "Action.OpenUrl",
+                    "title": "View Details",
+                    "url": "https://www.bing.com"
+                }
+            ]
+        }
+    ]
+}

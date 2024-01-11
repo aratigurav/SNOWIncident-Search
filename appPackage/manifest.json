@@ -1,0 +1,83 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.16",
+    "version": "2.0.0",
+    "id": "${{TEAMS_APP_ID}}",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/termofuse",
+        "termsOfUseUrl": "https://www.example.com/privacy"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "SNOWIncident-Search",
+        "full": "Provides list of incidents from ServiceNow"
+    },
+    "description": {
+        "short": "Provides list of incidents for user",
+        "full": "Provides incident list created by user, updates on the incident, and if any change in comments since last week."
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [
+        {
+            "botId": "${{BOT_ID}}",
+            "commands": [
+                {
+                    "id": "searchIncidents",
+                    "context": [
+                        "compose",
+                        "commandBox"
+                    ],
+                    "description": "Search Service Now Incidents",
+                    "title": "Search",
+                    "type": "query",
+                    "parameters": [
+                        {
+                            "name": "filterBy",
+                            "title": "filtervalue",
+                            "description": "Stringified JSON array, each object with fields `column`,`value`. Allowed col: `IncidentNumber`,`IncidentDescription`",
+                            "inputType": "text"
+                        },
+                        {
+                            "name": "DateRange",
+                            "title": "DateRange",
+                            "description": "Range of dates for search. ONLY Allowed values: 'yesterday', 'past_week', 'past_month' or custom range as 'dd-mm-yy,dd-mm-yy'",
+                            "inputType": "text"
+                        },
+                        {
+                            "name": "attributes",
+                            "title": "attributes",
+                            "description": "Gives comma separated list of attributes to show to user. Allowed values:Comments,activity_due, work_notes,state, priority",
+                            "inputType": "text"
+                        },
+                        {
+                            "name": "Status",
+                            "title": "Status",
+                            "description": "Status of the Incident. Return the number. Allowed output values:New, In_Progress,On_Hold,Resolved,Closed,Cancelled,Unknown",
+                            "inputType": "text"
+                        },
+                        {
+                            "name": "IncidentCreator",
+                            "title": "IncidentCreator",
+                            "description": "IncidentCreator should be an email ID.",
+                            "inputType": "text"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}
